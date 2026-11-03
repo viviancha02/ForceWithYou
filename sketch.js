@@ -4,6 +4,7 @@ function setup() {
   createCanvas(400, 200);
 
   ball = new Particle();
+  //frameRate(10);
 }
 
 
@@ -12,6 +13,11 @@ function draw() {
 
   let gravity = createVector(0, 0.3);
   ball.addForce(gravity);
+
+  if (mouseIsPressed) {
+    let wind = createVector(0.1, 0);
+    ball.addForce(wind);
+  }
 
   ball.update();
   ball.show();
